@@ -15,5 +15,11 @@ module.exports = {
     },
     devServer: {
         contentBase: './dist'
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html'
+        })
+    ]
 };
