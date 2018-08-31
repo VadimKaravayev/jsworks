@@ -1,3 +1,4 @@
 // Global app controller
 import num from './test';
-console.log(`I importd ${num} from another module updated`);
+const x = 23;
+console.log(`I importd ${num} from another module updated. Variable x = ${x}`);
