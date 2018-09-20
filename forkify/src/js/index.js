@@ -1,5 +1,6 @@
 console.log('I am ok. I am the controller.');
 import Search from './models/Search';
+import Recipe from './models/Recipe';
 import * as searchView from './views/searchView';
 import {elements, renderLoader, clearLoader} from './views/base';
 
@@ -8,6 +9,10 @@ import {elements, renderLoader, clearLoader} from './views/base';
 * - current recipe object
 * - shopping list object
 * - liked recipes object
+*/
+
+/**
+ * SEARCH CONTROLLER
 */
 const state = {};
 const controlSearch = async () => {
@@ -31,7 +36,7 @@ const controlSearch = async () => {
     searchView.renderResults(state.search.result);
     //console.log(state.search.result);
   }
-}
+};
 
 elements.searchForm.addEventListener('submit', e => {
   e.preventDefault();
@@ -47,3 +52,12 @@ elements.searchResPages.addEventListener('click', (e) => {
     console.log(goToPage);
   }
 });
+
+
+/**
+ * RECIPE CONTROLLER
+*/
+
+const r = new Recipe(46956);
+r.getRecipe();
+console.log(r);
