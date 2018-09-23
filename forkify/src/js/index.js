@@ -70,7 +70,7 @@ const controlRecipe = async () => {
   console.log(id);
   if (id) {
     //Prepare UI for changes
-    recipeView.renderRecipe();
+    recipeView.clearRecipe();
     renderLoader(elements.recipe);
     if (state.search) searchView.highlightSelected(id);
 
@@ -86,11 +86,16 @@ const controlRecipe = async () => {
 
       //Render recipe
       clearLoader();
+      console.log(state.recipe);
+      console.log("Hui");
       recipeView.renderRecipe(state.recipe);
+      console.log("Hui tam");
       console.log(state.recipe);
 
     } catch(error) {
+      console.log(error);
       console.log('Error processing recipe');
+      clearLoader();
     }
     
   }

@@ -74,6 +74,7 @@ export default class Recipe {
             }
             return objIng;
         });
+        console.log(newIngredients);
         this.ingredients = newIngredients;
     }
 }

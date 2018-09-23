@@ -7,7 +7,7 @@ export const clearRecipe = () => {
 
 const formatCount = (count) => {
     if (count) {
-        const [int, dec] = count.split('.').map(el => parseInt(el, 10));
+        const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
         if (!dec) return count;
         if (int === 0) {
             const fr = new Fraction(count);
@@ -25,7 +25,7 @@ const createIngredient = ingredient => `
         <svg class="recipe__icon">
             <use href="img/icons.svg#icon-check"></use>
         </svg>
-        <div class="recipe__count">${formatCount(ingredient.count)}</div>
+        <div class="recipe__count">${ingredient.count}</div>
         <div class="recipe__ingredient">
             <span class="recipe__unit">${ingredient.unit}</span>
             ${ingredient.ingredient}
@@ -77,17 +77,6 @@ export const renderRecipe = recipe => {
     <div class="recipe__ingredients">
         <ul class="recipe__ingredient-list">
             ${recipe.ingredients.map(el => createIngredient(el)).join('')}
-            <li class="recipe__item">
-                <svg class="recipe__icon">
-                    <use href="img/icons.svg#icon-check"></use>
-                </svg>
-                <div class="recipe__count">1000</div>
-                <div class="recipe__ingredient">
-                    <span class="recipe__unit">g</span>
-                    pasta
-                </div>
-            </li>
-            
         </ul>
         <button class="btn-small recipe__btn">
             <svg class="search__icon">
@@ -110,5 +99,7 @@ export const renderRecipe = recipe => {
         </a>
     </div>
     `;
-    elements.recipe.insertAdjacentElement('afterbegin', markup);
+    console.log(markup);
+    console.log(elements.recipe);
+    elements.recipe.insertAdjacentHTML('afterbegin', markup);
 };
